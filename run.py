@@ -1,4 +1,5 @@
 import utils
+import json
 
 #{question : tfidfs}
 docTFIDFs ={}
@@ -12,13 +13,10 @@ with open("data.csv", "r") as ins:
 
 
 questions = list(data.keys())
-print("Calculating TFIDF and caching")
-for question in questions:
-	docTFIDFs[question] = utils.getTFIDF(question, questions)
-
+docTFIDFs = json.load(open("stack-tfidf.json"))
 
 while(1):
-	query = input("Please enter question: ")
+	query = raw_input("Please enter question: ")
 	maxSimilarity = -1
 	bestQuestion = ""
 	for question in questions:
