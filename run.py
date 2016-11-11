@@ -5,7 +5,7 @@ docTFIDFs ={}
 # {question:answer}
 data = {}
 
-with open("t.csv", "r") as ins:
+with open("data.csv", "r") as ins:
   for line in ins:
  		arr = line.split(",")
  		data[arr[0].split('\'')[1]] = arr[1].split('\'')[1]
